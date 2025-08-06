@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchlist - Portfolio Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Portfolio Manager</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="assets.html" class="nav-link">Assets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="watchlist.html" class="nav-link active">Watchlist</a>
+                </li>
+                <li class="nav-item">
+                    <a href="transactions.html" class="nav-link">Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Watchlist</h1>
+                <button class="btn btn-primary" onclick="openAddWatchlistModal()">Add to Watchlist</button>
+            </div>
+
+            <div class="watchlist-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Current Price</th>
+                            <th>Change</th>
+                            <th>Change %</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="watchlistTableBody">
+                        <!-- Watchlist items will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add to Watchlist Modal -->
+    <div class="modal" id="addWatchlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add to Watchlist</h2>
+                <span class="close" onclick="closeAddWatchlistModal()">&times;</span>
+            </div>
+            <form id="addWatchlistForm">
+                <div class="form-group">
+                    <label for="watchlistSymbol">Symbol</label>
+                    <input type="text" id="watchlistSymbol" name="symbol" required placeholder="e.g., AAPL">
+                </div>
+                <div class="form-group">
+                    <label for="watchlistName">Name</label>
+                    <input type="text" id="watchlistName" name="name" required placeholder="e.g., Apple Inc.">
+                </div>
+                <div class="form-group">
+                    <label for="watchlistType">Type</label>
+                    <select id="watchlistType" name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="stock">Stock</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="bond">Bond</option>
+                        <option value="etf">ETF</option>
+                        <option value="mutual-fund">Mutual Fund</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="watchlistPrice">Current Price</label>
+                    <input type="number" id="watchlistPrice" name="price" step="0.01" required placeholder="0.00">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddWatchlistModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add to Watchlist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="watchlist.js"></script>
+</body>
+</html>

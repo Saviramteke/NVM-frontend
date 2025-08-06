@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets - Portfolio Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Portfolio Manager</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="assets.html" class="nav-link active">Assets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="watchlist.html" class="nav-link">Watchlist</a>
+                </li>
+                <li class="nav-item">
+                    <a href="transactions.html" class="nav-link">Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>My Assets</h1>
+                <button class="btn btn-primary" onclick="openAddAssetModal()">Add New Asset</button>
+            </div>
+
+            <div class="assets-grid" id="assetsGrid">
+                <!-- Assets will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Asset Modal -->
+    <div class="modal" id="addAssetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Asset</h2>
+                <span class="close" onclick="closeAddAssetModal()">&times;</span>
+            </div>
+            <form id="addAssetForm">
+                <div class="form-group">
+                    <label for="assetSymbol">Symbol</label>
+                    <input type="text" id="assetSymbol" name="symbol" required placeholder="e.g., AAPL">
+                </div>
+                <div class="form-group">
+                    <label for="assetName">Name</label>
+                    <input type="text" id="assetName" name="name" required placeholder="e.g., Apple Inc.">
+                </div>
+                <div class="form-group">
+                    <label for="assetType">Type</label>
+                    <select id="assetType" name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="stock">Stock</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="bond">Bond</option>
+                        <option value="etf">ETF</option>
+                        <option value="mutual-fund">Mutual Fund</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assetQuantity">Quantity</label>
+                    <input type="number" id="assetQuantity" name="quantity" step="0.01" required placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="assetPrice">Current Price</label>
+                    <input type="number" id="assetPrice" name="price" step="0.01" required placeholder="0.00">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddAssetModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Asset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="assets.js"></script>
+</body>
+</html>
